@@ -5,23 +5,23 @@ type Color uint32
 const (
 	Reset Color = 0
 
-	BrightForeground  = applyForeground | bright
-	BlackForeground   = applyForeground | black
-	RedForeground     = applyForeground | red
-	GreenForeground   = applyForeground | green
-	YellowForeground  = applyForeground | yellow
-	BlueForeground    = applyForeground | blue
-	MagentaForeground = applyForeground | magenta
-	CyanForeground    = applyForeground | cyan
-	WhiteForeground   = applyForeground | white
+	ForegroundBright  Color = applyForeground | bright
+	ForegroundBlack   Color = applyForeground | black
+	ForegroundRed     Color = applyForeground | red
+	ForegroundGreen   Color = applyForeground | green
+	ForegroundYellow  Color = applyForeground | yellow
+	ForegroundBlue    Color = applyForeground | blue
+	ForegroundMagenta Color = applyForeground | magenta
+	ForegroundCyan    Color = applyForeground | cyan
+	ForegroundWhite   Color = applyForeground | white
 
-	BrightBackground  = applyBackground | bright<<4
-	BlackBackground   = applyBackground | black<<4
-	RedBackground     = applyBackground | red<<4
-	GreenBackground   = applyBackground | green<<4
-	YellowBackground  = applyBackground | yellow<<4
-	BlueBackground    = applyBackground | blue<<4
-	MagentaBackground = applyBackground | magenta<<4
-	CyanBackground    = applyBackground | cyan<<4
-	WhiteBackground   = applyBackground | white<<4
+	BackgroundBright  Color = applyBackground | bright<<4
+	BackgroundBlack   Color = applyBackground | black<<4
+	BackgroundRed     Color = applyBackground | red<<4
+	BackgroundGreen   Color = applyBackground | green<<4
+	BackgroundYellow  Color = applyBackground | yellow<<4
+	BackgroundBlue    Color = applyBackground | blue<<4
+	BackgroundMagenta Color = applyBackground | magenta<<4
+	BackgroundCyan    Color = applyBackground | cyan<<4
+	BackgroundWhite   Color = applyBackground | white<<4
 )

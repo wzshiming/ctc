@@ -1,6 +1,8 @@
 package ctc
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func (c Color) Byte() []byte {
 	s := make([]byte, 0, 16)
