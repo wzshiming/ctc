@@ -3,8 +3,8 @@ package ctc
 const (
 	foregroundMask  = bright | white      // 0b0000???? foreground
 	backgroundMask  = foregroundMask << 4 // 0b????0000 background
-	applyForeground = 1 << 8              // 0b0000000100000000 applyForeground
-	applyBackground = 1 << 9              // 0b0000001000000000 ApplyBackground
+	applyForeground = 1 << 11             // 0b0000100000000000 applyForeground
+	applyBackground = 1 << 15             // 0b1000000000000000 ApplyBackground
 
 	bright  = 1 << 3             // 0b1000
 	black   = 0                  // 0b?000
@@ -35,6 +35,22 @@ func (c Color) Apply() {
 		c.applyLikeUnix()
 	case Windows:
 		c.applyWindows()
+	case Markdown:
+		c.applyWindows()
 	default:
+		return
+	}
+}
+
+func (c Color) Bytes() []byte {
+	switch Style {
+	case LikeUnix:
+		return c.LikeUnixBytes()
+	case Windows:
+		return nil
+	case Markdown:
+		return c.MarkdownBytes()
+	default:
+		return nil
 	}
 }
