@@ -11,8 +11,11 @@ func (c Color) apply() {
 	if initScreenInfo == nil { // No console info - Ex: stdout redirection
 		return
 	}
-
-	setConsoleTextAttribute(hStdout, c.swapRB())
+	w = initScreenInfo.WAttributes
+	if c&(applyForeground|applyBackground) != 0 {
+		c = uint16(c.swapRB())
+	}
+	setConsoleTextAttribute(hStdout, w)
 	return
 }
 
