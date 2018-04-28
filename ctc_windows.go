@@ -7,7 +7,13 @@ import (
 	"unsafe"
 )
 
-func (c Color) apply() {
+func init() {
+	if initScreenInfo != nil {
+		Style = Windows
+	}
+}
+
+func (c Color) applyWindows() {
 	if initScreenInfo == nil { // No console info - Ex: stdout redirection
 		return
 	}

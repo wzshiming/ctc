@@ -1,5 +1,15 @@
 package ctc
 
+type style uint8
+
+const (
+	None style = iota
+	LikeUnix
+	Windows
+)
+
+var Style style
+
 type Color uint32
 
 const (

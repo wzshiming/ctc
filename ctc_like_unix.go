@@ -1,6 +1,7 @@
 package ctc
 
 import (
+	"os"
 	"strconv"
 )
 
@@ -26,4 +27,9 @@ func appendColor(s []byte, c uint8, off uint8) []byte {
 		s = append(s, ';', '1')
 	}
 	return s
+}
+
+func (c Color) applyLikeUnix() {
+	os.Stdout.Write(c.Byte())
+	return
 }

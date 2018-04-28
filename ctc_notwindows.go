@@ -2,11 +2,10 @@
 
 package ctc
 
-import (
-	"os"
-)
+func init() {
+	Style = LikeUnix
+}
 
-func (c Color) apply() {
-	os.Stdout.Write(c.Byte())
+func (c Color) applyWindows() {
 	return
 }

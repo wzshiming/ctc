@@ -30,5 +30,11 @@ func (c Color) swapRB() Color {
 }
 
 func (c Color) Apply() {
-	c.apply()
+	switch Style {
+	case LikeUnix:
+		c.applyLikeUnix()
+	case Windows:
+		c.applyWindows()
+	default:
+	}
 }
