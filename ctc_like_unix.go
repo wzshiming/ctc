@@ -1,10 +1,8 @@
-// +build !windows
-
 package ctc
 
 import "strconv"
 
-func (c Color) String() string {
+func (c Color) Byte() []byte {
 	s := make([]byte, 0, 16)
 	s = append(s, []byte("\x1b[0")...)
 	if c&applyForeground != 0 {
@@ -15,7 +13,7 @@ func (c Color) String() string {
 	}
 	s = append(s, 'm')
 
-	return string(s)
+	return s
 }
 
 func appendColor(s []byte, c uint8, off uint8) []byte {

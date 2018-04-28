@@ -7,12 +7,13 @@ import (
 	"unsafe"
 )
 
-func (c Color) String() string {
+func (c Color) apply() {
 	if initScreenInfo == nil { // No console info - Ex: stdout redirection
-		return ""
+		return
 	}
-	setConsoleTextAttribute(hStdout, uint16(c))
-	return ""
+
+	setConsoleTextAttribute(hStdout, c.swapRB())
+	return
 }
 
 var (
