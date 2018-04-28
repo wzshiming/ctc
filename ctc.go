@@ -6,6 +6,7 @@ const (
 	None style = iota
 	LikeUnix
 	Windows
+	HTML
 )
 
 var Style style

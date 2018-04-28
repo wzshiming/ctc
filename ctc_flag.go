@@ -35,8 +35,8 @@ func (c Color) Apply() {
 		c.applyLikeUnix()
 	case Windows:
 		c.applyWindows()
-	case Markdown:
-		c.applyWindows()
+	case HTML:
+		c.applyHTML()
 	default:
 		return
 	}
@@ -48,8 +48,8 @@ func (c Color) Bytes() []byte {
 		return c.LikeUnixBytes()
 	case Windows:
 		return nil
-	case Markdown:
-		return c.MarkdownBytes()
+	case HTML:
+		return c.HTMLBytes()
 	default:
 		return nil
 	}
