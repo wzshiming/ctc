@@ -2,6 +2,7 @@ package ctc
 
 import (
 	"bytes"
+	"strings"
 )
 
 var cc = []string{
@@ -37,4 +38,25 @@ func (c Color) String() string {
 	}
 
 	return buf.String()
+}
+
+func (c Color) Info() string {
+	if c&(applyForeground|applyBackground) == 0 {
+		return "Reset"
+	}
+
+	ss := []string{}
+	if c&applyForeground == applyForeground {
+		if c&ForegroundBright == ForegroundBright {
+			ss = append(ss, "ForegroundBright")
+		}
+		ss = append(ss, "Foreground"+cc[int(c&foregroundMask&white)])
+	}
+	if c&applyBackground == applyBackground {
+		if c&BackgroundBright == BackgroundBright {
+			ss = append(ss, "BackgroundBright")
+		}
+		ss = append(ss, "Foreground"+cc[int(((c&backgroundMask)>>4)&white)])
+	}
+	return strings.Join(ss, " | ")
 }
