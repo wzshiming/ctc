@@ -1,6 +1,6 @@
 package ctc
 
-func (c Color) HTMLBytes() []byte {
+func (c Color) HTMLMarkup() []byte {
 	if c&(applyForeground|applyBackground) == 0 {
 		return []byte("</span>")
 	}

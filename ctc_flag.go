@@ -42,14 +42,14 @@ func (c Color) Apply() {
 	}
 }
 
-func (c Color) Bytes() []byte {
+func (c Color) Markup() []byte {
 	switch Style {
 	case LikeUnix:
-		return c.LikeUnixBytes()
+		return c.LikeUnixMarkup()
 	case Windows:
 		return nil
 	case HTML:
-		return c.HTMLBytes()
+		return c.HTMLMarkup()
 	default:
 		return nil
 	}
