@@ -16,7 +16,7 @@ var (
 	procGetConsoleMode              = kernel32.NewProc("GetConsoleMode")
 	procSetConsoleMode              = kernel32.NewProc("SetConsoleMode")
 	hStdout                         = uintptr(syscall.Stdout)
-	enableVirtualTerminalProcessing = 0x0004
+	enableVirtualTerminalProcessing = uintptr(0x0004)
 )
 
 func applyUnixlikeMode() error {
