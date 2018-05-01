@@ -56,7 +56,7 @@ func (c Color) Info() string {
 		if c&BackgroundBright == BackgroundBright {
 			ss = append(ss, "BackgroundBright")
 		}
-		ss = append(ss, "Foreground"+cc[int(((c&backgroundMask)>>4)&white)])
+		ss = append(ss, "Background"+cc[int(((c&backgroundMask)>>4)&white)])
 	}
 	return strings.Join(ss, " | ")
 }

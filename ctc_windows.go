@@ -17,9 +17,9 @@ func (c Color) applyWindows() {
 	if initScreenInfo == nil { // No console info - Ex: stdout redirection
 		return
 	}
-	w = initScreenInfo.WAttributes
+	w := initScreenInfo.WAttributes
 	if c&(applyForeground|applyBackground) != 0 {
-		c = uint16(c.swapRB())
+		w = uint16(c.swapRB() & (backgroundMask | foregroundMask))
 	}
 	setConsoleTextAttribute(hStdout, w)
 	return
