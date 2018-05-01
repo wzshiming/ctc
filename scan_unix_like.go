@@ -16,9 +16,8 @@ func ScanUnixLike(r io.Reader) (Color, []byte, bool) {
 		}
 		off++
 	}
+	code := byte(0)
 
-	fb := byte(0)
-loop:
 	for {
 		if off >= 16 {
 			return c, buf[:off], false
@@ -27,39 +26,22 @@ loop:
 		switch buf[off] {
 		default:
 			return c, buf[:off+1], false
-		case 'm':
-			return c, buf[:off+1], true
-		case ';':
-		}
-		off++
-
-		r.Read(buf[off : off+1])
-		switch buf[off] {
-		default:
-			return c, buf[:off+1], false
-		case '3', '4':
-			fb = buf[off] - '3'
-		case '1':
-			if fb == 0 {
-				c |= ForegroundBright
-			} else {
-				c |= BackgroundBright
+		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+			code *= 10
+			code += buf[off] - '0'
+		case 'm', ';':
+			switch code {
+			case 30, 31, 32, 33, 34, 35, 36, 37:
+				c |= Color(code - 30)
+			case 40, 41, 42, 43, 44, 45, 46, 47:
+				c |= Color(code-40) << 4
+			case 90, 91, 92, 93, 94, 95, 96, 97:
+				c |= Color(code-90) | ForegroundBright
+			case 100, 101, 102, 103, 104, 105, 106, 107:
+				c |= Color(code-100)<<4 | BackgroundBright
 			}
-			continue loop
-		}
-		off++
-
-		r.Read(buf[off : off+1])
-		switch buf[off] {
-		default:
-			return c, buf[:off+1], false
-		case '0', '1', '2', '3', '4', '5', '6', '7':
-			if fb == 0 {
-				c |= applyForeground
-				c |= Color(buf[off] - '0')
-			} else {
-				c |= applyBackground
-				c |= Color(buf[off]-'0') << 4
+			if buf[off] == 'm' {
+				return c, buf[:off+1], true
 			}
 		}
 		off++
