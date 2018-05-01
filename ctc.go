@@ -4,7 +4,7 @@ type style uint8
 
 const (
 	None style = iota
-	LikeUnix
+	UnixLike
 	Windows
 	HTML
 )

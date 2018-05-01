@@ -3,7 +3,7 @@
 package ctc
 
 func init() {
-	Style = LikeUnix
+	Style = UnixLike
 }
 
 func (c Color) applyWindows() {

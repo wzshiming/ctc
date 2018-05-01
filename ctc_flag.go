@@ -31,7 +31,7 @@ func (c Color) swapRB() Color {
 
 func (c Color) Apply() {
 	switch Style {
-	case LikeUnix:
+	case UnixLike:
 		c.applyLikeUnix()
 	case Windows:
 		c.applyWindows()
@@ -44,8 +44,8 @@ func (c Color) Apply() {
 
 func (c Color) Markup() []byte {
 	switch Style {
-	case LikeUnix:
-		return c.LikeUnixMarkup()
+	case UnixLike:
+		return c.UnixLikeMarkup()
 	case Windows:
 		return nil
 	case HTML:

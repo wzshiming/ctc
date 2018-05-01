@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func (c Color) LikeUnixMarkup() []byte {
+func (c Color) UnixLikeMarkup() []byte {
 	s := make([]byte, 0, 16)
 	s = append(s, []byte("\x1b[0")...)
 	if c&applyForeground != 0 {
@@ -30,6 +30,6 @@ func appendColor(s []byte, c uint8, off uint8) []byte {
 }
 
 func (c Color) applyLikeUnix() {
-	os.Stdout.Write(c.LikeUnixMarkup())
+	os.Stdout.Write(c.UnixLikeMarkup())
 	return
 }
