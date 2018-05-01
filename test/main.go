@@ -8,10 +8,7 @@ import (
 
 func plist(beg, end, step ctc.Color) {
 	for c := beg; c <= end; c += step {
-		c.Apply()
-		fmt.Print(c.String(), " = ", c.Info())
-		ctc.Reset.Apply()
-		fmt.Println()
+		fmt.Println(c, c.Name(), " = ", c.Info(), ctc.Reset)
 	}
 }
 
