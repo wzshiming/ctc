@@ -8,10 +8,9 @@ import (
 var pre = []byte("\x1b[0")
 
 func ScanUnixLike(r io.Reader) (Color, []byte, bool) {
-	buf := [16]byte{}
+	buf := [20]byte{}
 	off := 0
 	c := Color(0)
-	off = 0
 	for _, v := range pre {
 		r.Read(buf[off : off+1])
 		if buf[off] != v {
@@ -23,6 +22,9 @@ func ScanUnixLike(r io.Reader) (Color, []byte, bool) {
 	fb := byte(0)
 loop:
 	for {
+		if off >= 16 {
+			return c, buf[:off], false
+		}
 		r.Read(buf[off : off+1])
 		switch buf[off] {
 		default:
