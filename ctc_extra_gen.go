@@ -11,7 +11,7 @@ import (
 
 func plist(beg, end, step ctc.Color) {
 	for c := beg; c <= end; c += step {
-		a1 := c.String()
+		a1 := c.Name()
 		a2 := c.Info()
 		if a1 == a2 {
 			fmt.Print("// ")

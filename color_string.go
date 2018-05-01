@@ -17,6 +17,10 @@ var cc = []string{
 }
 
 func (c Color) String() string {
+	return string(c.UnixLikeMarkup())
+}
+
+func (c Color) Name() string {
 	if c&(applyForeground|applyBackground) == 0 {
 		return "Reset"
 	}
