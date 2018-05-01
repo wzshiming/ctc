@@ -14,7 +14,7 @@ func init() {
 }
 
 func (c Color) applyWindows() {
-	if initScreenInfo == nil { // No console info - Ex: stdout redirection
+	if initScreenInfo == nil {
 		return
 	}
 	w := initScreenInfo.WAttributes
@@ -26,13 +26,11 @@ func (c Color) applyWindows() {
 }
 
 var (
-	kernel32                               = syscall.NewLazyDLL("kernel32.dll")
-	procGetStdHandle                       = kernel32.NewProc("GetStdHandle")
-	procSetConsoleTextAttribute            = kernel32.NewProc("SetConsoleTextAttribute")
-	procGetConsoleScreenBufferInfo         = kernel32.NewProc("GetConsoleScreenBufferInfo")
-	stdOutputHandle                uintptr = -11 & 0xFFFFFFFF
-	hStdout, _, _                          = procGetStdHandle.Call(stdOutputHandle)
-	initScreenInfo                         = getConsoleScreenBufferInfo(hStdout)
+	kernel32                       = syscall.NewLazyDLL("kernel32.dll")
+	procSetConsoleTextAttribute    = kernel32.NewProc("SetConsoleTextAttribute")
+	procGetConsoleScreenBufferInfo = kernel32.NewProc("GetConsoleScreenBufferInfo")
+	hStdout                        = uintptr(syscall.Stdout)
+	initScreenInfo                 = getConsoleScreenBufferInfo(hStdout)
 )
 
 func getConsoleScreenBufferInfo(hStdout uintptr) *consoleScreenBufferInfo {
