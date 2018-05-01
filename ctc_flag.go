@@ -35,22 +35,7 @@ func (c Color) Apply() {
 		c.applyLikeUnix()
 	case Windows:
 		c.applyWindows()
-	case HTML:
-		c.applyHTML()
 	default:
 		return
-	}
-}
-
-func (c Color) Markup() []byte {
-	switch Style {
-	case UnixLike:
-		return c.UnixLikeMarkup()
-	case Windows:
-		return nil
-	case HTML:
-		return c.HTMLMarkup()
-	default:
-		return nil
 	}
 }

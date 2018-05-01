@@ -38,7 +38,3 @@ func appendColorHTML(s []byte, c uint8) []byte {
 	}
 	return s
 }
-
-func (c Color) applyHTML() {
-	return
-}
