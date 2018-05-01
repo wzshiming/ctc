@@ -6,34 +6,34 @@ import (
 	"github.com/wzshiming/ctc"
 )
 
-func main() {
-
-	fc := func(c ctc.Color) {
+func plist(beg, end, step ctc.Color) {
+	for c := beg; c <= end; c += step {
 		c.Apply()
 		fmt.Print(c.String(), " = ", c.Info())
 		ctc.Reset.Apply()
-		fmt.Printf("\n")
+		fmt.Println()
 	}
-	{
-		beg := ctc.ForegroundBlack
-		end := ctc.ForegroundWhite | ctc.ForegroundBright + 1
-		for i := beg; i != end; i++ {
-			fc(i)
-		}
+}
+
+func main() {
+	data := [...][3]ctc.Color{
+		{
+			ctc.ForegroundBlack,
+			ctc.ForegroundWhite | ctc.ForegroundBright,
+			1,
+		},
+		{
+			ctc.BackgroundBlack,
+			ctc.BackgroundWhite | ctc.BackgroundBright,
+			1 << 4,
+		},
+		{
+			ctc.ForegroundBlack | ctc.BackgroundBlack,
+			ctc.ForegroundWhite | ctc.ForegroundBright | ctc.BackgroundWhite | ctc.BackgroundBright,
+			1,
+		},
 	}
-	{
-		step := ctc.Color(1 << 4)
-		beg := ctc.BackgroundBlack
-		end := ctc.BackgroundWhite | ctc.BackgroundBright + step
-		for i := beg; i != end; i += step {
-			fc(i)
-		}
-	}
-	{
-		beg := ctc.ForegroundBlack | ctc.BackgroundBlack
-		end := ctc.ForegroundWhite | ctc.ForegroundBright | ctc.BackgroundWhite | ctc.BackgroundBright + 1
-		for i := beg; i != end; i++ {
-			fc(i)
-		}
+	for _, v := range data {
+		plist(v[0], v[1], v[2])
 	}
 }
