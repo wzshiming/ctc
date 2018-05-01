@@ -34,8 +34,3 @@ func appendColor(s []byte, c uint8, off uint8) []byte {
 	s = strconv.AppendUint(s, n, 10)
 	return s
 }
-
-func (c Color) applyLikeUnix() {
-	Stdout().Write(c.UnixLikeMarkup())
-	return
-}
