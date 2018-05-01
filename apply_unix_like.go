@@ -4,9 +4,11 @@ import (
 	"strconv"
 )
 
+var pre = []byte("\x1b[0")
+
 func (c Color) UnixLikeMarkup() []byte {
 	s := make([]byte, 0, 16)
-	s = append(s, []byte("\x1b[0")...)
+	s = append(s, pre...)
 	if c&applyForeground != 0 {
 		s = appendColor(s, uint8(c&foregroundMask), 30)
 	}

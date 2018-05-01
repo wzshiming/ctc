@@ -5,8 +5,6 @@ import (
 	"io"
 )
 
-var pre = []byte("\x1b[0")
-
 func ScanUnixLike(r io.Reader) (Color, []byte, bool) {
 	buf := [20]byte{}
 	off := 0
