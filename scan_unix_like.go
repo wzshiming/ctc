@@ -67,7 +67,7 @@ loop:
 }
 
 func PipeUnixLike(w io.Writer) io.Writer {
-	buf := bytes.NewBuffer(nil)
+	buf := newSyncBuffer()
 	go func() {
 		for {
 			c, b, ok := ScanUnixLike(buf)
@@ -79,4 +79,31 @@ func PipeUnixLike(w io.Writer) io.Writer {
 		}
 	}()
 	return buf
+}
+
+type syncBuffer struct {
+	buf bytes.Buffer
+	s   chan struct{}
+}
+
+func newSyncBuffer() *syncBuffer {
+	return &syncBuffer{
+		s: make(chan struct{}),
+	}
+}
+
+func (b *syncBuffer) Read(p []byte) (n int, err error) {
+	n, err = b.buf.Read(p)
+	if b.buf.Len() == 0 {
+		<-b.s
+	}
+	return
+}
+
+func (b *syncBuffer) Write(p []byte) (n int, err error) {
+	n, err = b.buf.Write(p)
+	if b.buf.Len() != 0 {
+		b.s <- struct{}{}
+	}
+	return
 }
