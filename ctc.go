@@ -1,16 +1,5 @@
 package ctc
 
-type style uint8
-
-const (
-	None style = iota
-	UnixLike
-	Windows
-	HTML
-)
-
-var Style style
-
 type Color uint64
 
 const (
