@@ -11,7 +11,7 @@ const (
 
 var Style style
 
-type Color uint32
+type Color uint64
 
 const (
 	Reset Color = 0
@@ -36,10 +36,13 @@ const (
 	BackgroundCyan    Color = applyBackground | cyan<<4
 	BackgroundWhite   Color = applyBackground | white<<4
 
+	Underline = 1 << 63 // 0b10000000000000000000000000000000 applyUnderline
+	Negative  = 1 << 62 // 0b01000000000000000000000000000000 applyNegative
+
 	foregroundMask  = bright | white      // 0b0000???? foreground
 	backgroundMask  = foregroundMask << 4 // 0b????0000 background
 	applyForeground = 1 << 11             // 0b0000100000000000 applyForeground
-	applyBackground = 1 << 15             // 0b1000000000000000 ApplyBackground
+	applyBackground = 1 << 15             // 0b1000000000000000 applyBackground
 
 	bright  = 1 << 3             // 0b1000
 	black   = 0                  // 0b?000

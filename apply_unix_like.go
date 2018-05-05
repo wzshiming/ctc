@@ -23,6 +23,12 @@ func (c Color) UnixLikeMarkup() []byte {
 			s = appendColor(s, uint8(c&backgroundMask>>4), 40)
 		}
 	}
+	if c&Underline != 0 {
+		s = append(s, ';', '4')
+	}
+	if c&Negative != 0 {
+		s = append(s, ';', '7')
+	}
 	s = append(s, 'm')
 
 	return s
