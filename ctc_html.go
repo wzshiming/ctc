@@ -1,5 +1,6 @@
 package ctc
 
+// HTMLMarkup HTML markup
 func (c Color) HTMLMarkup() []byte {
 	if c&(applyForeground|applyBackground) == 0 {
 		return []byte("</span>")

@@ -1,7 +1,9 @@
 package ctc
 
+// Color color sum
 type Color uint64
 
+// Color constant
 const (
 	Reset Color = 0
 

@@ -20,6 +20,7 @@ func (c Color) String() string {
 	return string(c.UnixLikeMarkup())
 }
 
+// Name Color name
 func (c Color) Name() string {
 	if c&(applyForeground|applyBackground) == 0 {
 		return "Reset"
@@ -49,6 +50,7 @@ func (c Color) Name() string {
 	return buf.String()
 }
 
+// Info Color details info
 func (c Color) Info() string {
 	if c&(applyForeground|applyBackground) == 0 {
 		return "Reset"

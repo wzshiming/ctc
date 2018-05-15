@@ -6,6 +6,7 @@ import (
 
 var pre = []byte("\x1b[0")
 
+// UnixLikeMarkup UnixLike markup
 func (c Color) UnixLikeMarkup() []byte {
 	s := make([]byte, 0, 16)
 	s = append(s, pre...)
