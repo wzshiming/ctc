@@ -41,10 +41,10 @@ func (c Color) Name() string {
 		}
 		buf.WriteString(cc[int(((c&backgroundMask)>>4)&white)])
 	}
-	if c&Underline != 0 {
+	if c&Underline == Underline {
 		buf.WriteString("Underline")
 	}
-	if c&Negative != 0 {
+	if c&Negative == Negative {
 		buf.WriteString("Negative")
 	}
 	return buf.String()
@@ -69,10 +69,10 @@ func (c Color) Info() string {
 		}
 		ss = append(ss, "Background"+cc[int(((c&backgroundMask)>>4)&white)])
 	}
-	if c&Underline != 0 {
+	if c&Underline == Underline {
 		ss = append(ss, "Underline")
 	}
-	if c&Negative != 0 {
+	if c&Negative == Negative {
 		ss = append(ss, "Negative")
 	}
 	return strings.Join(ss, " | ")

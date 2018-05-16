@@ -10,24 +10,24 @@ var pre = []byte("\x1b[0")
 func (c Color) UnixLikeMarkup() []byte {
 	s := make([]byte, 0, 16)
 	s = append(s, pre...)
-	if c&applyForeground != 0 {
+	if c&applyForeground == applyForeground {
 		if c&ForegroundBright == ForegroundBright {
 			s = appendColor(s, uint8(c&foregroundMask), 90)
 		} else {
 			s = appendColor(s, uint8(c&foregroundMask), 30)
 		}
 	}
-	if c&applyBackground != 0 {
+	if c&applyBackground == applyBackground {
 		if c&BackgroundBright == BackgroundBright {
 			s = appendColor(s, uint8(c&backgroundMask>>4), 100)
 		} else {
 			s = appendColor(s, uint8(c&backgroundMask>>4), 40)
 		}
 	}
-	if c&Underline != 0 {
+	if c&Underline == Underline {
 		s = append(s, ';', '4')
 	}
-	if c&Negative != 0 {
+	if c&Negative == Negative {
 		s = append(s, ';', '7')
 	}
 	s = append(s, 'm')
