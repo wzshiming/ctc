@@ -5,8 +5,6 @@
 - [x] console
   - [x] unix like
   - [x] windows
-- [ ] text
-  - [ ] html
 
 ## SGR (Select Graphic Rendition)
 
