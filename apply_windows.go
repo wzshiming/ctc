@@ -28,6 +28,11 @@ func applyUnixlikeMode() error {
 	if err != nil {
 		return err
 	}
+
+	if mode&enableVirtualTerminalProcessing == mode|enableVirtualTerminalProcessing {
+		return nil
+	}
+
 	ok, _, err = procSetConsoleMode.Call(hStdout, mode|enableVirtualTerminalProcessing)
 	if ok != 0 {
 		err = nil
