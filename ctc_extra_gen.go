@@ -13,10 +13,14 @@ func plist(beg, end, step ctc.Color) {
 	for c := beg; c <= end; c += step {
 		a1 := c.Name()
 		a2 := c.Info()
+
 		if a1 == a2 {
-			fmt.Print("// ")
+			fmt.Println("\n//", a1, "existing")
+			fmt.Println("//", a1, "=", a2)
+		} else {
+			fmt.Println("\n//", a1, a2)
+			fmt.Println(a1, "=", a2)
 		}
-		fmt.Println(a1, "=", a2)
 	}
 }
 
@@ -48,14 +52,12 @@ func main() {
 	os.Stdout = out
 
 	fmt.Println(`// Code generated; DO NOT EDIT.
-
 //go:generate go run ctc_extra_gen.go
 //go:generate go fmt ctc_extra.go
 
 package ctc
 
-const (
-`)
+const (`)
 	for _, v := range data {
 		plist(v[0], v[1], v[2])
 	}
