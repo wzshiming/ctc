@@ -1,9 +1,16 @@
 # (ctc) Console Text Colors
 
+The non-invasive cross-platform terminal color library does not need to modify the Print method
+
+Virtual unix-like environments on Windows
+
+- [English](https://github.com/wzshiming/ctc/blob/master/README.md)
+- [简体中文](https://github.com/wzshiming/ctc/blob/master/README_cn.md)
+
 ## Support style
 
 - [x] console
-  - [x] unix like
+  - [x] unix-like (mac & linux)
   - [x] windows
 
 ## SGR (Select Graphic Rendition)
@@ -35,3 +42,7 @@ func main() {
 }
 
 ```
+
+## License
+
+Pouch is licensed under the MIT License. See [LICENSE](https://github.com/wzshiming/pic2ascii/blob/master/LICENSE) for the full license text.
