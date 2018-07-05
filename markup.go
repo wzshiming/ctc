@@ -2,6 +2,8 @@ package ctc
 
 import (
 	"strconv"
+
+	_ "github.com/wzshiming/winseq"
 )
 
 var pre = []byte("\x1b[0")
