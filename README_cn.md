@@ -1,4 +1,8 @@
-# (ctc) 终端文本颜色
+# ctc - 终端文本颜色
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/wzshiming/ctc)](https://goreportcard.com/report/github.com/wzshiming/ctc)
+[![GoDoc](https://godoc.org/github.com/wzshiming/ctc?status.svg)](https://godoc.org/github.com/wzshiming/ctc)
+[![GitHub license](https://img.shields.io/github/license/wzshiming/ctc.svg)](https://github.com/wzshiming/ctc/blob/master/LICENSE)
 
 无侵入的跨平台的终端颜色库不需要修改Print方法
 
@@ -45,4 +49,4 @@ func main() {
 
 ## 许可证
 
-软包根据MIT License。有关完整的许可证文本，请参阅[LICENSE](https://github.com/wzshiming/pic2ascii/blob/master/LICENSE).
+软包根据MIT License。有关完整的许可证文本，请参阅[LICENSE](https://github.com/wzshiming/ctc/blob/master/LICENSE).

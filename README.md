@@ -1,4 +1,8 @@
-# (ctc) Console Text Colors
+# ctc - Console Text Colors
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/wzshiming/ctc)](https://goreportcard.com/report/github.com/wzshiming/ctc)
+[![GoDoc](https://godoc.org/github.com/wzshiming/ctc?status.svg)](https://godoc.org/github.com/wzshiming/ctc)
+[![GitHub license](https://img.shields.io/github/license/wzshiming/ctc.svg)](https://github.com/wzshiming/ctc/blob/master/LICENSE)
 
 The non-invasive cross-platform terminal color library does not need to modify the Print method
 
@@ -45,4 +49,4 @@ func main() {
 
 ## License
 
-Pouch is licensed under the MIT License. See [LICENSE](https://github.com/wzshiming/pic2ascii/blob/master/LICENSE) for the full license text.
+Pouch is licensed under the MIT License. See [LICENSE](https://github.com/wzshiming/ctc/blob/master/LICENSE) for the full license text.
