@@ -27,8 +27,8 @@ const (
 	BackgroundCyan    Color = applyBackground | cyan<<4
 	BackgroundWhite   Color = applyBackground | white<<4
 
-	Underline = 1 << 31 // 0b10000000000000000000000000000000 applyUnderline
-	Negative  = 1 << 30 // 0b01000000000000000000000000000000 applyNegative
+	Underline Color = 1 << 31 // 0b10000000000000000000000000000000 applyUnderline
+	Negative  Color = 1 << 30 // 0b01000000000000000000000000000000 applyNegative
 
 	foregroundMask  = bright | white      // 0b0000???? foreground
 	backgroundMask  = foregroundMask << 4 // 0b????0000 background
