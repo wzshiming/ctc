@@ -2,7 +2,11 @@ package ctc
 
 import (
 	"bytes"
+	"strconv"
 	"strings"
+	"unsafe"
+
+	_ "github.com/wzshiming/winseq" // Use Unix like Sequences in Windows
 )
 
 var cc = []string{
@@ -16,11 +20,44 @@ var cc = []string{
 	"White",
 }
 
+var pre = []byte("\x1b[0")
+
+// String returns UnixLike markup
 func (c Color) String() string {
-	return string(c.UnixLikeMarkup())
+	b := c.Bytes()
+	return *(*string)(unsafe.Pointer(&b))
 }
 
-// Name Color name
+// Bytes returns UnixLike markup
+func (c Color) Bytes() []byte {
+	s := make([]byte, 0, 16)
+	s = append(s, pre...)
+	if c&applyForeground == applyForeground {
+		if c&ForegroundBright == ForegroundBright {
+			s = appendColor(s, uint8(c&foregroundMask), 90)
+		} else {
+			s = appendColor(s, uint8(c&foregroundMask), 30)
+		}
+	}
+	if c&applyBackground == applyBackground {
+		if c&BackgroundBright == BackgroundBright {
+			s = appendColor(s, uint8(c&backgroundMask>>4), 100)
+		} else {
+			s = appendColor(s, uint8(c&backgroundMask>>4), 40)
+		}
+	}
+	if c&Underline == Underline {
+		s = append(s, ';', '4')
+	}
+	if c&Negative == Negative {
+		s = append(s, ';', '7')
+	}
+	s = append(s, 'm')
+
+	return s
+}
+
+// Name returns color name
 func (c Color) Name() string {
 	if c&(applyForeground|applyBackground) == 0 {
 		return "Reset"
@@ -50,7 +87,7 @@ func (c Color) Name() string {
 	return buf.String()
 }
 
-// Info Color details info
+// Info returns color details info
 func (c Color) Info() string {
 	if c&(applyForeground|applyBackground) == 0 {
 		return "Reset"
@@ -76,4 +113,11 @@ func (c Color) Info() string {
 		ss = append(ss, "Negative")
 	}
 	return strings.Join(ss, " | ")
+}
+
+func appendColor(s []byte, c uint8, off uint8) []byte {
+	s = append(s, ';')
+	n := uint64(off + c&uint8(white))
+	s = strconv.AppendUint(s, n, 10)
+	return s
 }
