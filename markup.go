@@ -3,7 +3,7 @@ package ctc
 import (
 	"strconv"
 
-	_ "github.com/wzshiming/winseq"
+	_ "github.com/wzshiming/winseq" // Use Unix like Sequences in Windows
 )
 
 var pre = []byte("\x1b[0")
