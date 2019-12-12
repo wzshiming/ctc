@@ -4,7 +4,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/wzshiming/ctc)](https://goreportcard.com/report/github.com/wzshiming/ctc)
 [![GoDoc](https://godoc.org/github.com/wzshiming/ctc?status.svg)](https://godoc.org/github.com/wzshiming/ctc)
 [![GitHub license](https://img.shields.io/github/license/wzshiming/ctc.svg)](https://github.com/wzshiming/ctc/blob/master/LICENSE)
-[![cover.run](https://cover.run/go/github.com/wzshiming/ctc.svg?style=flat&tag=golang-1.10)](https://cover.run/go?tag=golang-1.10&repo=github.com%2Fwzshiming%2Fctc)
+[![gocover.io](https://gocover.io/_badge/github.com/wzshiming/ctc)](https://gocover.io/github.com/wzshiming/ctc)
 
 The non-invasive cross-platform terminal color library does not need to modify the Print method
 
@@ -39,14 +39,14 @@ func main() {
 
 ## SGR (Select Graphic Rendition)
 
-| Value   | Description       | Behavior                                                          |
+|   Value | Description       | Behavior                                                          |
 | ------: | :---------------- | :---------------------------------------------------------------- |
-| 0       | Default           | Returns all attributes to the default state prior to modification |
-| 4       | Underline         | Adds underline                                                    |
-| 7       | Negative          | Swaps foreground and background colors                            |
-| 30~37   | Foreground        | Applies non-bold/bright color to foreground                       |
-| 40~47   | Background        | Applies non-bold/bright color to background                       |
-| 90~97   | Bright Foreground | Applies bold/bright color to foreground                           |
+|       0 | Default           | Returns all attributes to the default state prior to modification |
+|       4 | Underline         | Adds underline                                                    |
+|       7 | Negative          | Swaps foreground and background colors                            |
+|   30~37 | Foreground        | Applies non-bold/bright color to foreground                       |
+|   40~47 | Background        | Applies non-bold/bright color to background                       |
+|   90~97 | Bright Foreground | Applies bold/bright color to foreground                           |
 | 100~107 | Bright Background | Applies bold/bright color to background                           |
 
 ## License

@@ -4,7 +4,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/wzshiming/ctc)](https://goreportcard.com/report/github.com/wzshiming/ctc)
 [![GoDoc](https://godoc.org/github.com/wzshiming/ctc?status.svg)](https://godoc.org/github.com/wzshiming/ctc)
 [![GitHub license](https://img.shields.io/github/license/wzshiming/ctc.svg)](https://github.com/wzshiming/ctc/blob/master/LICENSE)
-[![cover.run](https://cover.run/go/github.com/wzshiming/ctc.svg?style=flat&tag=golang-1.10)](https://cover.run/go?tag=golang-1.10&repo=github.com%2Fwzshiming%2Fctc)
+[![gocover.io](https://gocover.io/_badge/github.com/wzshiming/ctc)](https://gocover.io/github.com/wzshiming/ctc)
 
 无侵入的跨平台的终端颜色库不需要修改Print方法
 
@@ -39,14 +39,14 @@ func main() {
 
 ## SGR (Select Graphic Rendition)
 
-| Value   | Description | Behavior                 |
+|   Value | Description | Behavior                 |
 | ------: | :---------- | :----------------------- |
-| 0       | 恢复默认    | 把所有属性还原到修改之前 |
-| 4       | 下划线      | 添加下划线               |
-| 7       | 交换颜色    | 交换前景和背景的颜色     |
-| 30~37   | 前景        | 非高量的前景颜色         |
-| 40~47   | 背景        | 非高量的背景颜色         |
-| 90~97   | 高亮前景    | 高量的前景颜色           |
+|       0 | 恢复默认    | 把所有属性还原到修改之前 |
+|       4 | 下划线      | 添加下划线               |
+|       7 | 交换颜色    | 交换前景和背景的颜色     |
+|   30~37 | 前景        | 非高量的前景颜色         |
+|   40~47 | 背景        | 非高量的背景颜色         |
+|   90~97 | 高亮前景    | 高量的前景颜色           |
 | 100~107 | 高亮背景    | 高量的背景颜色           |
 
 ## 许可证
