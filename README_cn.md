@@ -10,6 +10,8 @@
 
 在windows 下靠虚拟成类unix 环境
 
+与光标相关的在 [github.com/wzshiming/cursor](https://github.com/wzshiming/cursor)
+
 - [English](https://github.com/wzshiming/ctc/blob/master/README.md)
 - [简体中文](https://github.com/wzshiming/ctc/blob/master/README_cn.md)
 
