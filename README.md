@@ -10,6 +10,8 @@ The non-invasive cross-platform terminal color library does not need to modify t
 
 Virtual unix-like environments on Windows
 
+Cursor related in [github.com/wzshiming/cursor](https://github.com/wzshiming/cursor)
+
 - [English](https://github.com/wzshiming/ctc/blob/master/README.md)
 - [简体中文](https://github.com/wzshiming/ctc/blob/master/README_cn.md)
 
