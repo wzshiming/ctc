@@ -1,10 +1,7 @@
 # ctc - 终端文本颜色
 
-[![Build Status](https://travis-ci.org/wzshiming/ctc.svg?branch=master)](https://travis-ci.org/wzshiming/ctc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/wzshiming/ctc)](https://goreportcard.com/report/github.com/wzshiming/ctc)
 [![GoDoc](https://godoc.org/github.com/wzshiming/ctc?status.svg)](https://godoc.org/github.com/wzshiming/ctc)
 [![GitHub license](https://img.shields.io/github/license/wzshiming/ctc.svg)](https://github.com/wzshiming/ctc/blob/master/LICENSE)
-[![gocover.io](https://gocover.io/_badge/github.com/wzshiming/ctc)](https://gocover.io/github.com/wzshiming/ctc)
 
 无侵入的跨平台的终端颜色库不需要修改Print方法
 
